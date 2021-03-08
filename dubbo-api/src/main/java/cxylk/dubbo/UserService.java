@@ -1,5 +1,7 @@
 package cxylk.dubbo;
 
+import java.util.List;
+
 /**
  * @Classname UserService
  * @Description TODO
@@ -8,4 +10,6 @@ package cxylk.dubbo;
  **/
 public interface UserService {
     User getUser(Integer id);
+
+    List<User> findUsersByLabel(String label, Integer age);
 }

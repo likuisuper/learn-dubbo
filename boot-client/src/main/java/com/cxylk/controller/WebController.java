@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @Classname WebController
  * @Description TODO
@@ -23,5 +25,11 @@ public class WebController {
     @ResponseBody
     public User getUser(Integer id){
         return userService.getUser(id);
+    }
+
+    @RequestMapping("/find")
+    @ResponseBody
+    public List<User> find(String label, Integer age ){
+        return userService.findUsersByLabel(label,age);
     }
 }

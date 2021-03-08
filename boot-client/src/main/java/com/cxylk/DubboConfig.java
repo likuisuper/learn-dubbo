@@ -17,7 +17,7 @@ public class DubboConfig {
     /**
      * dubboService已经把这个bean注入了，但是这个bean的id和下面的bean的id是一样的，所以不会出现不是单例bean的错误
      */
-    @DubboReference(timeout = 3000)
+    @DubboReference(group = "${server.member.group}")
     private UserService userService;
 
     //bean的id就是方法名，不能写成其他

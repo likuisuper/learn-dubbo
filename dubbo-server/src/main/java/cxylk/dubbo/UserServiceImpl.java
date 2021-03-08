@@ -1,6 +1,8 @@
 package cxylk.dubbo;
 
 
+import java.util.List;
+
 /**
  * @Classname UserServiceImpl
  * @Description TODO
@@ -15,6 +17,10 @@ public class UserServiceImpl implements UserService {
         User user = createUser(id);
         user.setDesc("服务端口:" + port);
         return user;
+    }
+
+    public List<User> findUsersByLabel(String label, Integer age) {
+        return null;
     }
 
     static User createUser(Integer id) {
