@@ -17,7 +17,8 @@ import java.util.List;
  * @Date 2021/3/1 21:18
  **/
 //@DubboService(timeout = 1000,methods = {@Method(name = "getUser",timeout = 1500)})
-@DubboService(group = "${server.member.group}",methods = {@Method(name = "findUsersByLabel",loadbalance = "consistenthash")})
+@DubboService(group = "${server.member.group}",protocol = {"rmi","dubbo","http"},
+        methods = {@Method(name = "getUser",timeout = 3000)})
 public class UserServiceImpl implements UserService {
 //    private Integer port;
 
@@ -27,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Value("${server.name}")
     private String name;
 
-
+    @Override
     public User getUser(Integer id) {
         User user = createUser(id);
         user.setDesc("当前服务:" + name);

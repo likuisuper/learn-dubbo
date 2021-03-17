@@ -2,6 +2,7 @@ package com.cxylk;
 
 import cxylk.dubbo.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.Method;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,9 +16,9 @@ import org.springframework.context.annotation.Configuration;
 public class DubboConfig {
 
     /**
-     * dubboService已经把这个bean注入了，但是这个bean的id和下面的bean的id是一样的，所以不会出现不是单例bean的错误
+     * dubboService已经把这个bean注入了，但是这个bean的id和下面的bean的id是一样的，所以不会出现不是单例bean的错误。async设置异步调用
      */
-    @DubboReference(group = "${server.member.group}")
+    @DubboReference(group = "${server.member.group}",timeout = 5000,protocol = "http",methods = {@Method(name = "getUser",timeout = 5000)})
     private UserService userService;
 
     //bean的id就是方法名，不能写成其他
