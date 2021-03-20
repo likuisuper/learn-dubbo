@@ -73,8 +73,8 @@ public class HttpUtils {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(sendGet("http://127.0.0.1:8080/find", "label=aa&age=2"));
+        for (int i = 0; i < 31; i++) {
+            System.out.println(sendGet("http://127.0.0.1:8080/getUser", "id=2"));
         }
     }
 }

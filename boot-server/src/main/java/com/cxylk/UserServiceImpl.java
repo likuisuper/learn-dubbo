@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2021/3/1 21:18
  **/
 //@DubboService(timeout = 1000,methods = {@Method(name = "getUser",timeout = 1500)})
-@DubboService(group = "${server.member.group}",protocol = {"rmi","dubbo","http"},
+@DubboService(group = "${server.member.group}",
         methods = {@Method(name = "getUser",timeout = 3000)})
 public class UserServiceImpl implements UserService {
 //    private Integer port;
