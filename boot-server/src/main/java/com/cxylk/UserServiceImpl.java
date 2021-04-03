@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private String group;
 
     @Value("${server.name}")
-    private String name;
+    String name;
 
     @Override
     public User getUser(Integer id) {
